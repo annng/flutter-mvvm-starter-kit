@@ -1,11 +1,12 @@
 // This code was modified for demo purposes.
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/routing/routes.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/feature/home/home_screen.dart';
-import '../ui/feature/home/home_viewmodel.dart';
+import '../ui/feature/home/home_view_model.dart';
 
 GoRouter router(// AuthRepository authRepository,
         ) =>
@@ -28,10 +29,10 @@ GoRouter router(// AuthRepository authRepository,
         GoRoute(
           path: Routes.home,
           builder: (context, state) {
-            final viewModel = HomeViewModel(
-              userRepository: context.read(),
+            return BlocProvider<HomeViewModel>(
+              create: (_) => HomeViewModel(userRepository: context.read()),
+              child: const HomeScreen(),
             );
-            return HomeScreen(viewModel: viewModel);
           },
           routes: [
             // ...
