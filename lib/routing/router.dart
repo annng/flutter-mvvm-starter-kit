@@ -2,41 +2,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/routing/routes.dart';
+import 'package:flutter_mvvm/routing/session_cubit.dart';
+import 'package:flutter_mvvm/ui/feature/auth/login/login_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/feature/home/home_screen.dart';
 import '../ui/feature/home/home_view_model.dart';
 
-GoRouter router(// AuthRepository authRepository,
-        ) =>
+GoRouter router() =>
     GoRouter(
       initialLocation: Routes.home,
       debugLogDiagnostics: true,
       redirect: _redirect,
-      // refreshListenable: authRepository,
+      // refreshListenable: session.,
       routes: [
-        // GoRoute(
-        //   path: Routes.login,
-        //   builder: (context, state) {
-        //     return LoginScreen(
-        //       viewModel: LoginViewModel(
-        //         authRepository: context.read(),
-        //       ),
-        //     );
-        //   },
-        // ),
+
+        GoRoute(
+          path: Routes.login,
+          redirect: _redirect,
+          builder: (context, state) {
+            return LoginScreen();
+          },
+        ),
         GoRoute(
           path: Routes.home,
+          redirect: _redirect,
           builder: (context, state) {
-            return BlocProvider<HomeViewModel>(
-              create: (_) => HomeViewModel(userRepository: context.read()),
-              child: const HomeScreen(),
-            );
+            return const HomeScreen();
           },
-          routes: [
-            // ...
-          ],
         ),
       ],
     );
@@ -44,8 +38,10 @@ GoRouter router(// AuthRepository authRepository,
 // From https://github.com/flutter/packages/blob/main/packages/go_router/example/lib/redirection.dart
 Future<String?> _redirect(BuildContext context, GoRouterState state) async {
   // if the user is not logged in, they need to login
-  // final bool loggedIn = await context.read<AuthRepository>().isAuthenticated; //todo create auth repository to handle login or not
-  final bool loggedIn = true;
+  final session = context.read<SessionCubit>();
+  session.checkSession();
+
+  final bool loggedIn = session.state != null;
   final bool loggingIn = state.matchedLocation == Routes.login;
   if (!loggedIn) {
     return Routes.login;
