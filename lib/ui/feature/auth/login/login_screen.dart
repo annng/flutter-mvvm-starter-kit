@@ -1,8 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mvvm/config/core/base_cubit.dart';
-import 'package:flutter_mvvm/routing/router.dart';
 import 'package:flutter_mvvm/routing/session_cubit.dart';
 
 class LoginScreen extends StatelessWidget {

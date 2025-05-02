@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/config/dependencies.dart';
 import 'package:flutter_mvvm/routing/router.dart';
-import 'package:flutter_mvvm/routing/session_cubit.dart';
 import 'package:provider/provider.dart';
 
 void main() {

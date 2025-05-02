@@ -1,6 +1,5 @@
 import 'package:flutter_mvvm/config/core/base_cubit.dart';
 import 'package:flutter_mvvm/ui/feature/home/home_state.dart' show HomeState;
-import 'package:logging/logging.dart';
 
 import '../../../data/repositories/user/user_repository.dart';
 

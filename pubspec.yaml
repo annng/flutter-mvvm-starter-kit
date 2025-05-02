@@ -36,20 +36,25 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
-  dio: ^5.4.3
-  cached_network_image: ^3.3.1
-  collection: ^1.18.0
-  flutter_svg: ^2.0.10+1
-  freezed_annotation: ^2.4.4 # dart run build_runner build
+  dio: ^5.8.0+1
+  cached_network_image: ^3.4.1
+  collection: ^1.19.1
+  flutter_svg: ^2.1.0
+  freezed_annotation: ^3.0.0 # dart run build_runner build
 
-  go_router: ^14.2.0
-  intl: any
+  go_router: ^15.1.1
+  intl: ^0.19.0
   json_annotation: ^4.9.0
-  logging: ^1.2.0
-  provider: ^6.1.2
-  flutter_secure_storage: ^4.2.1
-  bloc: ^8.1.4
-  flutter_bloc: ^8.1.6
+  logging: ^1.3.0
+  provider: ^6.1.5
+  flutter_secure_storage: ^9.2.4
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
+  flutter_dotenv: ^5.2.1
+  flutter_image_compress: ^2.4.0
+  path_provider: ^2.1.5
+  path: ^1.9.1
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
@@ -60,14 +65,14 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
   mocktail_image_network: ^1.2.0
   mocktail: ^1.0.4
   integration_test:
     sdk: flutter
-  build_runner: ^2.4.12
-  freezed: ^2.5.7
-  json_serializable: ^6.8.0
+  build_runner: ^2.4.15
+  freezed: ^3.0.6
+  json_serializable: ^6.9.5
 
 
 # For information on the generic Dart part of this file, see the

@@ -8,7 +8,6 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
 import '../ui/feature/home/home_screen.dart';
-import '../ui/feature/home/home_view_model.dart';
 
 GoRouter router() =>
     GoRouter(

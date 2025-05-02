@@ -1,13 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mvvm/routing/router.dart';
 import 'package:flutter_mvvm/ui/feature/home/home_state.dart';
-import 'package:go_router/go_router.dart';
-import 'package:provider/provider.dart';
 
 import '../../../config/core/base_state.dart';
-import '../../../routing/routes.dart';
 import '../../../routing/session_cubit.dart';
 import 'home_view_model.dart';
 
@@ -26,7 +21,7 @@ class HomeScreen extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         }
         if (state is BaseError) {
-          final errorState = state as BaseError;
+          final errorState = state;
           return Container(
             child: Text(errorState.message),
           ); // modify with your error state

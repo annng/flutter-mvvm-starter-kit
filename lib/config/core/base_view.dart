@@ -15,8 +15,8 @@ class BaseView<T> extends StatelessWidget {
     required this.onSuccess,
     this.loadingWidget,
     this.errorWidget,
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +28,7 @@ class BaseView<T> extends StatelessWidget {
         } else if (state is BaseSuccess<T>) {
           return onSuccess(state.data);
         } else if (state is BaseError<T>) {
-          return errorWidget ?? Center(child: Text((state as BaseError<T>).message));
+          return errorWidget ?? Center(child: Text((state).message));
         } else {
           return const SizedBox.shrink();
         }
