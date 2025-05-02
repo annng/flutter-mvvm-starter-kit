@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mvvm/config/core/base_cubit.dart';
 import 'package:flutter_mvvm/routing/router.dart';
+import 'package:flutter_mvvm/routing/routes.dart';
 import 'package:flutter_mvvm/routing/session_cubit.dart';
+import 'package:go_router/go_router.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -20,6 +21,7 @@ class LoginScreen extends StatelessWidget {
             Text("Login"),
             ElevatedButton(onPressed: () {
               session.createSession("asd");
+              context.go(Routes.home);
             }, child: Text("Login"))
           ],
         ),

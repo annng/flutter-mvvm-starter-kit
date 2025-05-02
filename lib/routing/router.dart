@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 
 import '../ui/feature/home/home_screen.dart';
 import '../ui/feature/home/home_view_model.dart';
+import '../ui/feature/map/map_screen.dart';
 
 GoRouter router() =>
     GoRouter(
@@ -30,6 +31,13 @@ GoRouter router() =>
           redirect: _redirect,
           builder: (context, state) {
             return const HomeScreen();
+          },
+        ),
+        GoRoute(
+          path: Routes.map,
+          redirect: _redirect,
+          builder: (context, state) {
+            return const MapWidgetForFlutterFlow();
           },
         ),
       ],

@@ -5,6 +5,7 @@
 abstract final class Routes {
   static const home = '/';
   static const login = '/login';
+  static const map = '/map';
 
   // static const booking = '/$bookingRelative';
   // static const bookingRelative = 'booking';

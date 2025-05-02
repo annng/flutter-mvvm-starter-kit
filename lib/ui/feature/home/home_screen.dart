@@ -48,10 +48,10 @@ class HomeScreen extends StatelessWidget {
                           Container(
                             child: InkWell(
                               onTap: () async {
-                                final data = successState.data.users?[index];
-                                await viewModel.fetchUserDetails(data?.id ?? 0);
+                                // final data = successState.data.users?[index];
+                                // await viewModel.fetchUserDetails(data?.id ?? 0);
                                 // await sessionCubit.clearSession();
-                                // context.go(Routes.login);
+                                context.go(Routes.map);
                                 },
                               child: Padding(
                                 padding: const EdgeInsets.all(8.0),
