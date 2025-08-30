@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/routing/routes.dart';
 import 'package:flutter_mvvm/routing/session_cubit.dart';
 import 'package:flutter_mvvm/ui/feature/auth/login/login_screen.dart';
+import 'package:flutter_mvvm/ui/feature/auth/otp/otp_screen.dart';
+import 'package:flutter_mvvm/ui/feature/auth/register/register_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
@@ -13,7 +15,6 @@ GoRouter router() =>
     GoRouter(
       initialLocation: Routes.home,
       debugLogDiagnostics: true,
-      redirect: _redirect,
       // refreshListenable: session.,
       routes: [
 
@@ -24,6 +25,20 @@ GoRouter router() =>
             return LoginScreen();
           },
         ),
+
+        GoRoute(
+          path: Routes.register,
+          builder: (context, state) {
+            return RegisterScreen();
+          },
+        ),
+        GoRoute(
+          path: Routes.otp,
+          builder: (context, state) {
+            return OtpScreen();
+          },
+        ),
+
         GoRoute(
           path: Routes.home,
           redirect: _redirect,

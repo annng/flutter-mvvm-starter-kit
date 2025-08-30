@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/config/dependencies.dart';
 import 'package:flutter_mvvm/routing/router.dart';
+import 'package:flutter_mvvm/utils/res/colors.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -19,8 +20,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: MyColors.primary),
         useMaterial3: true,
+      ),
+      darkTheme : ThemeData(
+
       ),
       routerConfig: router(),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/data/repositories/user/user_repository.dart';
 import 'package:flutter_mvvm/data/repositories/user/user_repository_remote.dart';
+import 'package:flutter_mvvm/ui/feature/auth/login/login_view_model.dart';
 import 'package:flutter_mvvm/ui/feature/home/home_view_model.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,11 @@ List<SingleChildWidget> get blocProvider {
       create: (context) => SessionCubit(context.read<FlutterSecureStorage>()),
     ),
     BlocProvider<HomeViewModel>(
-      create: (context) => HomeViewModel(userRepository: context.read<UserRepository>()),
+      create: (context) =>
+          HomeViewModel(userRepository: context.read<UserRepository>()),
+    ),
+    BlocProvider<LoginViewModel>(
+      create: (context) => LoginViewModel(),
     ),
   ];
 }
