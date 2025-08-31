@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mvvm/ui/feature/event/event_screen.dart';
+import 'package:flutter_mvvm/ui/feature/home/component/bottom_navigation_home.dart';
 import 'package:flutter_mvvm/ui/feature/home/home_state.dart';
 
 import '../../../config/core/base_state.dart';
@@ -12,33 +13,31 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    int _currentIndex = 0;
-
     final List<Widget> _screens = [
+      EventScreen(),
+      EventScreen(),
       EventScreen(),
     ];
 
-    return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) {},
-        type: BottomNavigationBarType.fixed,
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.event),
-            label: 'Events',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: 'Navigation',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Profile',
-          ),
-        ],
-      ),
-    );
+    final viewModel = context.read<HomeViewModel>();
+
+    return BlocBuilder<HomeViewModel, BaseState>(builder: (context, state) {
+      final successState = state as BaseSuccess<HomeState>;
+      return Scaffold(
+        body: PageView(
+          controller: viewModel.pageController,
+          children: _screens,
+          physics: NeverScrollableScrollPhysics(),
+          onPageChanged: (index) {
+            //viewModel.setCurrentNavigationItem(index);
+          },
+        ),
+        bottomNavigationBar: BottomNavigationHome(
+            currentIndex: successState.data.currentNavigationIndex,
+            onTap: (index) {
+              viewModel.setCurrentNavigationItem(index);
+            }),
+      );
+    });
   }
 }

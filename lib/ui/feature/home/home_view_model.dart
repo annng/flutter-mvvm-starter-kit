@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_mvvm/config/core/base_cubit.dart';
 import 'package:flutter_mvvm/ui/feature/home/home_state.dart' show HomeState;
 
@@ -9,12 +10,16 @@ class HomeViewModel extends BaseCubit<HomeState> {
   }) :
         // Repositories are manually assigned because they're private members.
         _userRepository = userRepository {
-    load();
+    // load();
   }
 
   final UserRepository _userRepository;
 
-   HomeState uiState = HomeState(user: null, users: null);
+  final PageController pageController = PageController();
+
+
+  HomeState uiState =
+      HomeState(user: null, users: null, currentNavigationIndex: 0);
 
   Future<void> load() async {
     emitLoading();
@@ -27,14 +32,16 @@ class HomeViewModel extends BaseCubit<HomeState> {
     }
   }
 
-  Future<void> fetchUserDetails(int id) async {
-    // emitLoading(); //general loading
-    // emitSuccess(uiState.copyWith(loadingx : true)); //spesific loading by define flag in uistate
+  void setCurrentNavigationItem(int currentIndex) {
     try {
-      final user = await _userRepository.getUser(id);
-      uiState = uiState.copyWith(user: user.data);
+      pageController.animateToPage(
+        currentIndex,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+      uiState = uiState.copyWith(currentNavigationIndex: currentIndex);
       emitSuccess(uiState);
-    } catch (error) {
+    }catch (error){
       emitError(error.toString());
     }
   }

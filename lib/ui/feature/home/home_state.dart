@@ -11,6 +11,7 @@ abstract class HomeState with _$HomeState {
   factory HomeState({
     required User? user,
     required List<User>? users,
+    required int currentNavigationIndex,
   }) = _HomeState;
 
   factory HomeState.fromJson(Map<String, dynamic> json) =>
