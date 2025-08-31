@@ -6,6 +6,8 @@ class Assets {
   static const String iconHome = 'assets/icon/home.svg';
   static const String iconLocation = 'assets/icon/location.svg';
   static const String iconProfile = 'assets/icon/profile.svg';
+  static const String imgHomeBanner = 'assets/img/home_banner.png';
+  static const String imgHomeOrnamentMusic = 'assets/img/home_ornament_music.png';
   static const String imgStateSinging = 'assets/img/state_singing.svg';
 
 }

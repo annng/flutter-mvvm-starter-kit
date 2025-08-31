@@ -24,19 +24,26 @@ class HomeScreen extends StatelessWidget {
     return BlocBuilder<HomeViewModel, BaseState>(builder: (context, state) {
       final successState = state as BaseSuccess<HomeState>;
       return Scaffold(
-        body: PageView(
-          controller: viewModel.pageController,
-          children: _screens,
-          physics: NeverScrollableScrollPhysics(),
-          onPageChanged: (index) {
-            //viewModel.setCurrentNavigationItem(index);
-          },
-        ),
-        bottomNavigationBar: BottomNavigationHome(
-            currentIndex: successState.data.currentNavigationIndex,
-            onTap: (index) {
-              viewModel.setCurrentNavigationItem(index);
-            }),
+        body: Stack(fit: StackFit.expand, children: [
+          PageView(
+            controller: viewModel.pageController,
+            children: _screens,
+            physics: NeverScrollableScrollPhysics(),
+            onPageChanged: (index) {
+              //viewModel.setCurrentNavigationItem(index);
+            },
+          ),
+          Positioned(
+            left: 0,
+            right: 0,
+            bottom: 16,
+            child: BottomNavigationHome(
+                currentIndex: successState.data.currentNavigationIndex,
+                onTap: (index) {
+                  viewModel.setCurrentNavigationItem(index);
+                }),
+          ),
+        ]),
       );
     });
   }

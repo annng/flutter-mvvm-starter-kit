@@ -10,7 +10,7 @@ class HomeViewModel extends BaseCubit<HomeState> {
   }) :
         // Repositories are manually assigned because they're private members.
         _userRepository = userRepository {
-    // load();
+    load();
   }
 
   final UserRepository _userRepository;
@@ -22,10 +22,9 @@ class HomeViewModel extends BaseCubit<HomeState> {
       HomeState(user: null, users: null, currentNavigationIndex: 0);
 
   Future<void> load() async {
-    emitLoading();
     try {
-      final user = await _userRepository.getUsers();
-      uiState = uiState.copyWith(users: user.data);
+      // final user = await _userRepository.getUsers();
+      uiState = uiState.copyWith(currentNavigationIndex: 0);
       emitSuccess(uiState);
     } catch (error) {
       emitError(error.toString());

@@ -31,7 +31,7 @@ class Event {
       venue: 'Gelora Bung Karno Stadium',
       location: LatLng(-6.2185, 106.8014),
       price: 150000,
-      imageUrl: 'assets/event1.jpg',
+      imageUrl: 'https://springboard.id/wp-content/uploads/2023/02/HITC.jpg',
     ),
     Event(
       id: '2',
@@ -41,7 +41,7 @@ class Event {
       venue: 'Jakarta Convention Center',
       location: LatLng(-6.2297, 106.8070),
       price: 300000,
-      imageUrl: 'assets/event2.jpg',
+      imageUrl: 'https://a.storyblok.com/f/188325/1024x681/b70ae71a00/screen-shot-2018-11-28-at-18-44-51-1024x681.jpg/m/filters:quality(75):format(webp)',
     ),
     Event(
       id: '3',
@@ -51,7 +51,7 @@ class Event {
       venue: 'Kemang Village',
       location: LatLng(-6.2615, 106.8106),
       price: 75000,
-      imageUrl: 'assets/event3.jpg',
+      imageUrl: 'https://i.ytimg.com/vi/BLsQyx604Yc/hq720.jpg',
     ),
   ];
 }

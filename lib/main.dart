@@ -18,14 +18,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Flutter Demo',
+      title: 'Tickety',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: MyColors.primary),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: MyColors.primary,
+            secondary: MyColors.primary_light,
+            tertiary: MyColors.accent),
         useMaterial3: true,
       ),
-      darkTheme : ThemeData(
-
-      ),
+      darkTheme: ThemeData(),
       routerConfig: router(),
     );
   }
